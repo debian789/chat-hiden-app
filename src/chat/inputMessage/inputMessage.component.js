@@ -23,7 +23,8 @@ export default class InputMessage extends Component {
 
   _sendMensaje() {
     if (this.state.textInputValue){
-      this.props.sendMessage.call(null, this.state.textInputValue)
+      this.props.sendMessage.call(null, {mensaje:this.state.textInputValue})
+      this.setState({textInputValue:''})
     }
   }
 
@@ -37,6 +38,7 @@ export default class InputMessage extends Component {
           editable={true}
           maxLength={40}
           placeholder="Enter Text here"
+          value={this.state.textInputValue}
           onChangeText={textInputValue => this.setState({textInputValue})}
         />
         <Icon name="arrow-right" style={InputMessageStyle.uploadFile} onPress={this._sendMensaje.bind(this)}></Icon>

@@ -33,6 +33,7 @@ export default class Chat extends Component {
       this.setState({message: mgs.mensaje})
     })
 
+    this._sendMessage = this._sendMessage.bind(this)
     
   }
   
