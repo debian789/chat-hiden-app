@@ -10,9 +10,9 @@ import {
   Text,
   View
 } from 'react-native'
-import InputMessage from './inputMessage'
-import ListMessage from './listMessage'
-import socketServer from '../commons/constans'
+import InputMessage from '../inputMessage/inputMessage.component'
+import ListMessage from '../listMessage/listMessage.component'
+import socketServer from '../../commons/constans'
 import SocketIOClient from 'socket.io-client'
 import Icon from 'react-native-vector-icons/FontAwesome'
 
@@ -44,9 +44,6 @@ export default class Chat extends Component {
 
     return (
       <View style={styles.container}>
-        <View>
-          <Text> hola</Text>
-        </View>
         <ListMessage/>
         <InputMessage/>
       </View>

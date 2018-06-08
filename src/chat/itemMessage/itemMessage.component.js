@@ -13,7 +13,7 @@ import {
 } from 'react-native'
 
 import Icon from 'react-native-vector-icons/FontAwesome'
-import COLORS from '../commons/constans'
+import COLORS from '../../commons/constans'
 
 export default class ItemMessage extends Component {
   state = {

@@ -14,8 +14,8 @@ import {
 } from 'react-native'
 
 import Icon from 'react-native-vector-icons/FontAwesome'
-import COLORS from '../commons/constans'
-import ItemMessage from './itemMessage'
+import COLORS from '../../commons/constans'
+import ItemMessage from '../itemMessage/itemMessage.component'
 
 export default class ListMessage extends Component {
   state = {
