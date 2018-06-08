@@ -33,16 +33,21 @@ export default class Chat extends Component {
       this.setState({message: mgs.mensaje})
     })
 
-    this.socket.emit('mensaje',{ mensaje: 'siiii', user: 'mobile', key: new Date()})
-
+    
   }
+  
+  _sendMessage(message) {
+    debugger
+    this.socket.emit('mensaje',{ mensaje: 'siiii', user: 'mobile', key: new Date()})    
+  }
+
 
   render () {
 
     return (
       <View style={chatStyle.container}>
         <ListMessage/>
-        <InputMessage/>
+        <InputMessage sendMessage={this._sendMessage}/>
       </View>
     )
   }

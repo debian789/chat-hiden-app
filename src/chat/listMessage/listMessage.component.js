@@ -30,6 +30,13 @@ export default class ListMessage extends Component {
       <ScrollView style={ListMessageStyle.containerMessage}>
         <ItemMessage isSent={true}/>
         <ItemMessage isSent={false}/>
+        <ItemMessage isSent={true}/>
+        <ItemMessage isSent={true}/>
+        <ItemMessage isSent={false}/>
+        <ItemMessage isSent={false}/>
+        <ItemMessage isSent={true}/>
+        <ItemMessage isSent={false}/>
+        <ItemMessage isSent={false}/>
 
       </ScrollView>
     )
