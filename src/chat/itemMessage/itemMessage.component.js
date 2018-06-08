@@ -6,14 +6,13 @@
 
 import React, { Component } from 'react'
 import {
-  StyleSheet,
   Text,
   View,
   Image
 } from 'react-native'
 
 import Icon from 'react-native-vector-icons/FontAwesome'
-import COLORS from '../../commons/constans'
+import itemMessage from './itemMessage.style'
 
 export default class ItemMessage extends Component {
   state = {
@@ -26,10 +25,10 @@ export default class ItemMessage extends Component {
 
   render () {
 
-    let styleItem = this.props.isSent ? styles.messageSent : styles.messageReceived
-    let styleItemText = this.props.isSent ? styles.textMessageSent : styles.textMessageReceived
+    let styleItem = this.props.isSent ? itemMessage.messageSent : itemMessage.messageReceived
+    let styleItemText = this.props.isSent ? itemMessage.textMessageSent : itemMessage.textMessageReceived
 
-    let itemSent = (<View style={styles.itemMessage}>
+    let itemSent = (<View style={itemMessage.itemMessage}>
 
       <View style={styleItem}>
         <Text style={styleItemText}>
@@ -38,13 +37,13 @@ export default class ItemMessage extends Component {
           aspernatur beatae eum iste labore odit officia praesentium quae rem totam!
         </Text>
       </View>
-      <Image style={styles.imageMessage}
+      <Image style={itemMessage.imageMessage}
              source={{uri: 'https://facebook.github.io/react/img/logo_og.png'}}
       />
     </View>)
 
-    let itemReceived = (<View style={styles.itemMessage}>
-      <Image style={styles.imageMessage}
+    let itemReceived = (<View style={itemMessage.itemMessage}>
+      <Image style={itemMessage.imageMessage}
              source={{uri: 'https://facebook.github.io/react/img/logo_og.png'}}
       />
       <View style={styleItem}>
@@ -61,39 +60,3 @@ export default class ItemMessage extends Component {
     return (item)
   }
 }
-
-const styles = StyleSheet.create({
-  itemMessage: {
-    flexDirection: 'row',
-    paddingHorizontal: 5,
-    paddingVertical: 4
-  },
-  imageMessage: {
-    width: 40,
-    height: 40,
-    borderRadius: 50
-  },
-  messageReceived: {
-    marginHorizontal: 5,
-    borderRadius: 10,
-    paddingHorizontal: 6,
-    paddingVertical: 5,
-    flex: 1,
-    backgroundColor: COLORS.COLORS.COLOR_GRIS,
-
-  },
-  messageSent: {
-    marginHorizontal: 5,
-    borderRadius: 10,
-    paddingHorizontal: 6,
-    paddingVertical: 5,
-    flex: 1,
-    backgroundColor: COLORS.COLORS.COLOR_2
-  },
-  textMessageReceived: {
-    color: 'black'
-  },
-  textMessageSent: {
-    color: 'white'
-  }
-})

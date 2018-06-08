@@ -5,15 +5,12 @@
  */
 
 import React, { Component } from 'react'
-import {
-  StyleSheet,
-  Text,
-  View
-} from 'react-native'
+import {Text,View} from 'react-native'
 import InputMessage from '../inputMessage/inputMessage.component'
 import ListMessage from '../listMessage/listMessage.component'
 import socketServer from '../../commons/constans'
 import SocketIOClient from 'socket.io-client'
+import chatStyle from './chat.style'
 import Icon from 'react-native-vector-icons/FontAwesome'
 
 
@@ -43,7 +40,7 @@ export default class Chat extends Component {
   render () {
 
     return (
-      <View style={styles.container}>
+      <View style={chatStyle.container}>
         <ListMessage/>
         <InputMessage/>
       </View>
@@ -51,9 +48,3 @@ export default class Chat extends Component {
   }
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#F5FCFF',
-  }
-})
