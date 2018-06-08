@@ -8,6 +8,6 @@ export default {
     COLOR_GRIS: '#E1E1E1'
   },
   CONNECTION: {
-    SOCKET: 'http://192.168.1.101:4000'
+    SOCKET: 'http://192.168.1.111:3000'
   }
 }

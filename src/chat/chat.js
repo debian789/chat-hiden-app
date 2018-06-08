@@ -25,14 +25,23 @@ export default class Chat extends Component {
   constructor (props) {
     super(props)
     this.socket = SocketIOClient(socketServer.CONNECTION.SOCKET)
-  }
+//    this.socket.on('connect', function(){debugger});
+//  this.socket.on('event', function(data){debugger});
+//   this.socket.on('disconnect', function(){debugger});
 
-  render () {
-    this.socket.emit('join', {sala: 'a', user: 'user'})
+    this.socket.emit('join', 'a')
     this.socket.on('mensaje', (mgs) => {
+      debugger 
       console.warn('socket:', mgs)
       this.setState({message: mgs.mensaje})
     })
+
+    this.socket.emit('mensaje',{ mensaje: 'siiii', user: 'mobile', key: new Date()})
+
+  }
+
+  render () {
+
     return (
       <View style={styles.container}>
         <View>
