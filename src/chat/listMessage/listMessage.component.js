@@ -18,29 +18,18 @@ export default class ListMessage extends Component {
     this._renderMessage = this
       ._renderMessage
       .bind(this)
-
   }
 
   _renderMessage() {
-    debugger
     if (this.props.messages) {
-
       return this
         .props
         .messages
         .map((message, index) => {
-          return (<ItemMessage key={index} isSent={message.isSent} message={message.message}/>)
+          return (<ItemMessage key={index} isSent={message.isSent} message={message.mensaje}/>)
         })
-    } else {
-      return (
-        <View></View>
-      )
-    }
+    } 
   }
-
-
-
-  
 
   render() {
     return (

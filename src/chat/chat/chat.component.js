@@ -21,9 +21,7 @@ export default class Chat extends Component {
     //    this.socket.on('connect', function(){debugger});
     //  this.socket.on('event', function(data){debugger});
     //   this.socket.on('disconnect', function(){debugger});
-    
-  
-    
+    this._sendMessage = this._sendMessage.bind(this)        
   }
   
   
@@ -38,6 +36,8 @@ export default class Chat extends Component {
     //Esta pendiente de recibir informacion desde el server
     this.socket.on('mensaje', (mgs) => {
       if (mgs.user !== self.state.user) {
+        mgs.isSent = true;
+
         self._receiveMessage(mgs)
       }
     })
@@ -78,12 +78,10 @@ export default class Chat extends Component {
       this.setState({mensajes: mensajes})
   }
 
-  _sendMessage(message) {
+  _sendMessage(mensaje) {
     // this.socket.emit('mensaje',{ mensaje: message.mensaje, user: 'mobile', key: new Date()})  
-    
-    
     let mensajeEnviar = {mensaje: mensaje.mensaje, user: this.state.user, key: new Date()}
-    let mensajeInsertar = {mensaje: mensaje.mensaje, user: this.state.user, key: new Date(), isSent: true}
+    let mensajeInsertar = {mensaje: mensaje.mensaje, user: this.state.user, key: new Date(), isSent: false}
     this._receiveMessage(mensajeInsertar)
 
     //Envia un mensaje al server, este se encarga de reenviarlo a todos

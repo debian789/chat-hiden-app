@@ -18,16 +18,16 @@ export default StyleSheet.create({
       paddingHorizontal: 6,
       paddingVertical: 5,
       flex: 1,
-      backgroundColor: COLORS.COLORS.COLOR_GRIS,
-  
+      backgroundColor: COLORS.COLORS.COLOR_2
+      
     },
     messageSent: {
       marginHorizontal: 5,
       borderRadius: 10,
       paddingHorizontal: 6,
       paddingVertical: 5,
+      backgroundColor: COLORS.COLORS.COLOR_GRIS,
       flex: 1,
-      backgroundColor: COLORS.COLORS.COLOR_2
     },
     textMessageReceived: {
       color: 'black'

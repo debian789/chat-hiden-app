@@ -12,7 +12,7 @@ import {
 } from 'react-native'
 
 import Icon from 'react-native-vector-icons/FontAwesome'
-import itemMessage from './itemMessage.style'
+import itemMessageStyle from './itemMessage.style'
 
 export default class ItemMessage extends Component {
   state = {
@@ -25,32 +25,29 @@ export default class ItemMessage extends Component {
 
   render () {
 
-    let styleItem = this.props.isSent ? itemMessage.messageSent : itemMessage.messageReceived
-    let styleItemText = this.props.isSent ? itemMessage.textMessageSent : itemMessage.textMessageReceived
+    let styleItem = this.props.isSent ? itemMessageStyle.messageSent : itemMessageStyle.messageReceived
+    let styleItemText = this.props.isSent ? itemMessageStyle.textMessageSent : itemMessageStyle.textMessageReceived
 
-    let itemSent = (<View style={itemMessage.itemMessage}>
+    let itemSent = (<View style={itemMessageStyle.itemMessage}>
 
       <View style={styleItem}>
         <Text style={styleItemText}>
-          esto es un mensaje Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto
-          consequatur eligendi eos saepe vero! Eligendi incidunt tempore voluptatem. Alias
-          aspernatur beatae eum iste labore odit officia praesentium quae rem totam!
+          {this.props.message}
         </Text>
       </View>
-      <Image style={itemMessage.imageMessage}
+      <Image style={itemMessageStyle.imageMessage}
              source={{uri: 'https://facebook.github.io/react/img/logo_og.png'}}
       />
     </View>)
 
-    let itemReceived = (<View style={itemMessage.itemMessage}>
-      <Image style={itemMessage.imageMessage}
+    let itemReceived = (<View style={itemMessageStyle.itemMessage}>
+      <Image style={itemMessageStyle.imageMessage}
              source={{uri: 'https://facebook.github.io/react/img/logo_og.png'}}
       />
       <View style={styleItem}>
         <Text style={styleItemText}>
-          esto es un mensaje Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto
-          consequatur eligendi eos saepe vero! Eligendi incidunt tempore voluptatem. Alias
-          aspernatur beatae eum iste labore odit officia praesentium quae rem totam!
+        {this.props.message}
+        
         </Text>
       </View>
     </View>)
