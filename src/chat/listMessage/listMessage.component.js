@@ -33,7 +33,17 @@ export default class ListMessage extends Component {
 
   render() {
     return (
-      <ScrollView style={ListMessageStyle.containerMessage}>
+      <ScrollView 
+      ref={ref => this.scrollView = ref}
+    onContentSizeChange={(contentWidth, contentHeight)=>{        
+        this.scrollView.scrollToEnd({animated: true});
+    }}
+
+
+    
+      style={ListMessageStyle.containerMessage}
+      
+      >
         {
           this._renderMessage()
         }
