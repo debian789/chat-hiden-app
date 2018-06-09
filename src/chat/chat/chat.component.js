@@ -35,6 +35,7 @@ export default class Chat extends Component {
 
     //Esta pendiente de recibir informacion desde el server
     this.socket.on('mensaje', (mgs) => {
+      debugger
       if (mgs.user !== self.state.user) {
         mgs.isSent = true;
 

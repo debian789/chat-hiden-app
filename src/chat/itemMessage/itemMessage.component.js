@@ -13,6 +13,9 @@ import {
 
 import Icon from 'react-native-vector-icons/FontAwesome'
 import itemMessageStyle from './itemMessage.style'
+import constants from '../../commons/constans'
+const urlServer = constants.CONNECTION.SOCKET
+import ItemDinamic from '../itemDinamic/itemDinamic.component'
 
 export default class ItemMessage extends Component {
   state = {
@@ -24,31 +27,25 @@ export default class ItemMessage extends Component {
   }
 
   render () {
-
     let styleItem = this.props.isSent ? itemMessageStyle.messageSent : itemMessageStyle.messageReceived
     let styleItemText = this.props.isSent ? itemMessageStyle.textMessageSent : itemMessageStyle.textMessageReceived
-
     let itemSent = (<View style={itemMessageStyle.itemMessage}>
 
       <View style={styleItem}>
-        <Text style={styleItemText}>
-          {this.props.message}
-        </Text>
+        <ItemDinamic   style={styleItemText} message={this.props.message}/>       
       </View>
       <Image style={itemMessageStyle.imageMessage}
              source={{uri: 'https://facebook.github.io/react/img/logo_og.png'}}
       />
     </View>)
 
+    
     let itemReceived = (<View style={itemMessageStyle.itemMessage}>
       <Image style={itemMessageStyle.imageMessage}
              source={{uri: 'https://facebook.github.io/react/img/logo_og.png'}}
       />
       <View style={styleItem}>
-        <Text style={styleItemText}>
-        {this.props.message}
-        
-        </Text>
+      <ItemDinamic   style={styleItemText} message={this.props.message}/>  
       </View>
     </View>)
 
