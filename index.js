@@ -1,6 +1,5 @@
 import { AppRegistry } from 'react-native';
 // import App from './App';
-import Chat from './src/chat/chat/chat.component'
+import Navegation from './src/navegation/navegation'
 
-
-AppRegistry.registerComponent('chatHideApp', () => Chat);
+AppRegistry.registerComponent('chatHideApp', () => Navegation);
