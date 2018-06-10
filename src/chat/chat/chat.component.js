@@ -13,7 +13,6 @@ import SocketIOClient from 'socket.io-client'
 import chatStyle from './chat.style'
 import Icon from 'react-native-vector-icons/FontAwesome'
 
-
 export default class Chat extends Component {
   constructor (props) {
     super(props)
@@ -35,7 +34,6 @@ export default class Chat extends Component {
 
     //Esta pendiente de recibir informacion desde el server
     this.socket.on('mensaje', (mgs) => {
-      debugger
       if (mgs.user !== self.state.user) {
         mgs.isSent = true;
 

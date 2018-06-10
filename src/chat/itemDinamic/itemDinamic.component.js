@@ -14,6 +14,8 @@ import Icon from 'react-native-vector-icons/FontAwesome'
 import itemDinamicStyle from './itemDinamic.style'
 import constants from '../../commons/constans'
 const urlServer = constants.CONNECTION.SOCKET
+import VideoPlayer from './video/video.component'
+
 
 export default class ItemDinamic extends Component {
 
@@ -40,14 +42,16 @@ export default class ItemDinamic extends Component {
                 source={{uri: `${urlServer}/${this.props.message}`}}
             />
         </View>
-      } else if (this.props.message.split('.').indexOf('mp4') !== -1) {
-        element = <Video controls autoPlay>
-          <source src={this.props.message} type="video/mp4"/>
-        </Video>
-      } else if (this.props.message.split('.').indexOf('m4v') !== -1) {
-        element = <Video controls autoPlay>
-          <source src={this.props.message} type="video/mp4"/>
-        </Video>
+      } else if ((this.props.message.split('.').indexOf('mp4') !== -1) ||
+       (this.props.message.split('.').indexOf('m4v') !== -1 )) {
+        element =
+        <VideoPlayer urlVideo={`${urlServer}/${this.props.message}`} />
+
+
+      //} else if (this.props.message.split('.').indexOf('m4v') !== -1) {
+      //  element = <Video controls autoPlay>
+      //    <source src={this.props.message} type="video/mp4"/>
+      //  </Video>
       }
       // else if (this.props.message.split('.').indexOf('gif') !== -1) {
      //   element = <View style="containerSubItems"><Image alt="Image" style="ImageMessage" src={this.props.message}/></View>
