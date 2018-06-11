@@ -2,6 +2,9 @@ import React, {Component} from 'react'
 import {View, Text, TextInput, TouchableHighlight} from 'react-native';
 import LoginStyle from './login.style'
 var ImagePicker = require('react-native-image-picker');
+var RNFS = require('react-native-fs');
+var uploadUrl = 'http://192.168.1.111:3000/upload';  // For testing purposes, go to http://requestb.in/ and create your own link
+
 
 var options = {
     title: 'Select Avatar',
@@ -52,17 +55,72 @@ export default class Login extends Component {
             }
             else if (response.customButton) {
               console.log('User tapped custom button: ', response.customButton);
-
             }
             else {
               let source = { uri: response.uri };
           
               // You can also display the image using data:
               // let source = { uri: 'data:image/jpeg;base64,' + response.data };
+          // response.path 
+
+         
+          var files = [
+            {
+              name: 'file',
+              filename: response.fileName,
+              filepath: response.path ,
+              filetype: response.type
+            }
+          ];
+
+
+
+
+          var uploadBegin = (response) => {
+            var jobId = response.jobId;
+            console.log('UPLOAD HAS BEGUN! JobId: ' + jobId);
+          };
           
-              this.setState({
-                avatarSource: source
-              });
+          var uploadProgress = (response) => {
+            var percentage = Math.floor((response.totalBytesSent/response.totalBytesExpectedToSend) * 100);
+            console.log('UPLOAD IS ' + percentage + '% DONE!');
+          };
+          
+          // upload files
+          RNFS.uploadFiles({
+            toUrl: uploadUrl,
+            files: files,
+            method: 'POST',
+            headers: {
+              'Accept': 'application/json',
+            },
+            fields: {
+              'hello': 'world',
+            },
+            begin: uploadBegin,
+            progress: uploadProgress
+          }).promise.then((response) => {
+              debugger
+              if (response.statusCode == 200) {
+                console.log('FILES UPLOADED!'); // response.statusCode, response.headers, response.body
+              } else {
+                console.log('SERVER ERROR');
+              }
+            })
+            .catch((err) => {
+                debugger
+              if(err.description === "cancelled") {
+                // cancelled by user
+              }
+              console.log(err);
+            });
+
+
+            
+
+              //this.setState({
+              //  avatarSource: source
+              //});
             }
           });
     }
