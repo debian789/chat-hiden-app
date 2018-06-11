@@ -13,20 +13,9 @@ import {
 
 import Icon from 'react-native-vector-icons/FontAwesome'
 import InputMessageStyle from './inputMessage.style'
-var ImagePicker = require('react-native-image-picker');
-var RNFS = require('react-native-fs');
-var uploadUrl = 'http://192.168.1.111:3000/upload';  // For testing purposes, go to http://requestb.in/ and create your own link
 
-const options = {
-  title: 'Select Avatar',
-//  customButtons: [
-//    {name: 'fb', title: 'Choose Photo from Facebook'},
-//  ],
-  storageOptions: {
-    skipBackup: true,
-    path: 'images'
-  }
-};
+import selectFile from '../../commons/selectFile'
+
 
 export default class InputMessage extends Component {
   constructor (props) {
@@ -49,6 +38,18 @@ export default class InputMessage extends Component {
   _uploadFile() {
     const self2 = this
 
+
+
+    
+    selectFile((error, url) => {
+      if (!error) {
+        debugger 
+        self2.setState({textInputValue: url})
+        self2._sendMensaje()
+      }
+    })
+
+    /*
     ImagePicker.showImagePicker(options, (response) => {
       console.log('Response = ', response);
     
@@ -63,11 +64,6 @@ export default class InputMessage extends Component {
       }
       else {
         let source = { uri: response.uri };
-    
-        // You can also display the image using data:
-        // let source = { uri: 'data:image/jpeg;base64,' + response.data };
-    // response.path 
-
    
     var files = [
       {
@@ -91,7 +87,6 @@ export default class InputMessage extends Component {
       console.log('UPLOAD IS ' + percentage + '% DONE!');
     };
     
-    // upload files
     RNFS.uploadFiles({
       toUrl: uploadUrl,
       files: files,
@@ -111,10 +106,8 @@ export default class InputMessage extends Component {
           self2.setState({textInputValue: urlImageUpload.file})
           self2._sendMensaje()
 
-          //  if (this.state.textInputValue){
 
-
-          console.log('FILES UPLOADED!'); // response.statusCode, response.headers, response.body
+          console.log('FILES UPLOADED!'); 
         } else {
           console.log('SERVER ERROR');
         }
@@ -122,7 +115,7 @@ export default class InputMessage extends Component {
       .catch((err) => {
           debugger
         if(err.description === "cancelled") {
-          // cancelled by user
+
         }
         console.log(err);
       });
@@ -130,11 +123,10 @@ export default class InputMessage extends Component {
 
       
 
-        //this.setState({
-        //  avatarSource: source
-        //});
       }
     });
+
+    */
   }
 
   render () {
