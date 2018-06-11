@@ -16,17 +16,22 @@ import Icon from 'react-native-vector-icons/FontAwesome'
 export default class Chat extends Component {
   constructor (props) {
     super(props)
-    this.state = {mensajes: [], user: 'angel', sala: 'a'}
+    this.state = {mensajes: [], user: '', sala: ''}
     //    this.socket.on('connect', function(){debugger});
     //  this.socket.on('event', function(data){debugger});
     //   this.socket.on('disconnect', function(){debugger});
     this._sendMessage = this._sendMessage.bind(this)        
   }
   
-  
-  
   componentWillMount () {
     
+    const user = this.props.navigation.getParam('user')
+    const sala = this.props.navigation.getParam('sala')
+
+
+    this.setState({user:user})
+    this.setState({sala:sala})
+
     // Url de escucha de socket.io, el cliente con  el server
     this.socket = SocketIOClient(socketServer.CONNECTION.SOCKET)
 
@@ -45,7 +50,11 @@ export default class Chat extends Component {
       self.setState({mensajes: []})
     })
 
-    this.socket.emit('join', 'a')
+
+
+
+
+    this.socket.emit('join', sala)
     //this.socket.on('mensaje', (mgs) => {
     //  debugger 
     //  console.warn('socket:', mgs)
