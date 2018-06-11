@@ -34,7 +34,9 @@ export default class InputMessage extends Component {
     this.state = {
       textInputValue: ''
     }
-    
+
+    this._uploadFile = this._uploadFile.bind(this)
+
   }
 
   _sendMensaje() {
@@ -45,7 +47,7 @@ export default class InputMessage extends Component {
   }
 
   _uploadFile() {
-    debugger
+    const self2 = this
 
     ImagePicker.showImagePicker(options, (response) => {
       console.log('Response = ', response);
@@ -106,10 +108,9 @@ export default class InputMessage extends Component {
         if (response.statusCode == 200) {
           const urlImageUpload = JSON.parse(response.body)
 
-          urlImageUpload.file
+          self2.setState({textInputValue: urlImageUpload.file})
+          self2._sendMensaje()
 
-          debugger
-          //_sendMensaje() {
           //  if (this.state.textInputValue){
 
 
