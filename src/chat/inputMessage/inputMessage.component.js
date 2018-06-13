@@ -12,8 +12,10 @@ import {
 } from 'react-native'
 
 import Icon from 'react-native-vector-icons/FontAwesome'
+import Foundation from 'react-native-vector-icons/Foundation'
 import InputMessageStyle from './inputMessage.style'
 import selectFilePhoto from '../../commons/selectFilePhoto'
+import selectFileVideo from '../../commons/selectFileVideo'
 
 export default class InputMessage extends Component {
   constructor (props) {
@@ -44,11 +46,29 @@ export default class InputMessage extends Component {
     })
   }
 
+  _uploadFileVideo() {
+    const self2 = this
+  
+    selectFileVideo((error, url) => {
+      if (!error) {
+        self2.setState({textInputValue: url})
+        self2._sendMensaje()
+      }
+    })
+  }
+
+
+
+
+
   render () {
     return (
       <View style={InputMessageStyle.inputMessage}>
         <TouchableHighlight onPress={this._uploadFile}>
-          <Icon name="paperclip" style={InputMessageStyle.uploadFile} ></Icon>
+          <Icon name="photo" style={InputMessageStyle.uploadFile} ></Icon>
+        </TouchableHighlight>
+        <TouchableHighlight onPress={this._uploadFileVideo}>
+          <Foundation name="video" style={InputMessageStyle.uploadFile} ></Foundation>
         </TouchableHighlight>
         <TextInput
           underlineColorAndroid="transparent"
