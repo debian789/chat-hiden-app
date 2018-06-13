@@ -4,11 +4,15 @@ import Chat from '../chat/chat/chat.component'
 import Login from '../login/login.component'
 import DrawerComponent from './drawer/drawer.component'
 import HeaderComponent from './header/header.component'
+import ConfigurationComponent from '../configuration/configuration.component'
 
 const ChatNavigator = createStackNavigator({
     Chat: {
         screen: Chat
-    }
+    },
+    Configuration: {
+        screen: ConfigurationComponent
+    }    
 }, {
     headerMode: 'screen',
     initialRouteName: 'Chat',
