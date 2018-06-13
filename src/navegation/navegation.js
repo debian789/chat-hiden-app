@@ -1,39 +1,32 @@
-import { createStackNavigator, createDrawerNavigator } from 'react-navigation';
-
+import {createStackNavigator, createDrawerNavigator} from 'react-navigation';
+import React from 'react'
 import Chat from '../chat/chat/chat.component'
 import Login from '../login/login.component'
 import DrawerComponent from './drawer/drawer.component'
-
-
-
-
-
-const DrawerMenu = createDrawerNavigator({
-    Chat: {
-      screen: Chat,
-    },
-  
-},
-{
-    initialRouteName: 'Chat',
-    contentComponent: DrawerComponent
-}
-);
-
+import HeaderComponent from './header/header.component'
 
 const ChatNavigator = createStackNavigator({
-    DrawerMenu: {
-      screen: DrawerMenu
+    Chat: {
+        screen: Chat
     }
-
-},
-{
+}, {
     headerMode: 'screen',
-    initialRouteName: 'DrawerMenu',
-}
-)
+    initialRouteName: 'Chat',
+    navigationOptions: (navigation) => {
+        return {
+            header: <HeaderComponent navigation={navigation.navigation}></HeaderComponent>
+        }
+    }
+})
 
-
+const DrawerMenu = createDrawerNavigator({
+    ChatNavigator: {
+        screen: ChatNavigator
+    }
+}, {
+    initialRouteName: 'ChatNavigator',
+    contentComponent: DrawerComponent
+});
 
 /*
 const ChatNavigator = createStackNavigator({
@@ -51,21 +44,15 @@ const ChatNavigator = createStackNavigator({
 }
 )*/
 
-
-const LoginNavigator =  createStackNavigator({
+const LoginNavigator = createStackNavigator({
     Login: {
         screen: Login
     },
-    ChatNavigator:ChatNavigator
+    DrawerMenu: DrawerMenu
 
-},
-{
+}, {
     initialRouteName: 'Login',
-    headerMode: 'none',
-}
-)
-
-
+    headerMode: 'none'
+})
 
 export default LoginNavigator
-
