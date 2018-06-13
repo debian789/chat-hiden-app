@@ -17,15 +17,13 @@ export default class HeaderComponent extends Component {
 
     _handlerDrawer() {
         if (this.props.navigation.state.isDrawerOpen) {
-            debugger
-            this.props.navigation.navigate('DrawerClose')
+            this.props.navigation.closeDrawer()
         } else {
-            this.props.navigation.navigate('DrawerOpen')
-            debugger
+            this.props.navigation.openDrawer()
         } 
     }
 
-    
+
     _quit() {
         this.props.navigation.navigate('Login')
     }
