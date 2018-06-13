@@ -28,7 +28,7 @@ export default StyleSheet.create({
     },
     logoText: {
         textAlign: 'center',
-        fontSize: 25,
+        fontSize: 23,
         color: 'white',
         fontWeight: 'bold',
 

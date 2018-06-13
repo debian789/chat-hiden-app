@@ -35,13 +35,13 @@ export default class HeaderComponent extends Component {
                      <TouchableHighlight
                           style={HeaderStyle.menu}
                           onPress={this._handlerDrawer}>
-                         <Text><Icon style={HeaderStyle.menuIcon} name="bars" size={30}/></Text>
+                         <Text><Icon style={HeaderStyle.menuIcon} name="bars" size={25}/></Text>
                      </TouchableHighlight>
                      <View style={HeaderStyle.logo}><Text style={HeaderStyle.logoText}>Chat</Text></View>
                      <TouchableHighlight
                           style={HeaderStyle.navegation}
                           onPress={this._quit}>
-                         <Text><Icon name="sign-out" size={30} style={HeaderStyle.navegationIcon}/></Text>
+                         <Text><Icon name="sign-out" size={25} style={HeaderStyle.navegationIcon}/></Text>
                      </TouchableHighlight>
                  </View>
              </View>

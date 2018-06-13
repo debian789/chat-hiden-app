@@ -1,6 +1,9 @@
 import React, {Component} from 'react'
-import {StyleSheet, View, Text, ScrollView, CheckBox} from 'react-native'
+import {View, Text, ScrollView} from 'react-native'
 import DrawerStyle from './drawer.style'
+import Icon from 'react-native-vector-icons/FontAwesome'
+
+import MaterialIcons from 'react-native-vector-icons/MaterialIcons'
 
 export default class drawerComponent extends Component {
 
@@ -10,11 +13,11 @@ export default class drawerComponent extends Component {
             ._navigateToConfiguration
             .bind(this)
 
-            this._navigateToChat = this
+        this._navigateToChat = this
             ._navigateToChat
             .bind(this)
 
-            this._navigateToLogin = this
+        this._navigateToLogin = this
             ._navigateToLogin
             .bind(this)
     }
@@ -46,16 +49,19 @@ export default class drawerComponent extends Component {
                 <ScrollView style={DrawerStyle.scrollView}>
                     <View style={DrawerStyle.containerOptions}>
                         <View style={DrawerStyle.navSectionStyle} key="a">
+                            <MaterialIcons name="message" size={25} style={DrawerStyle.iconsBtn}/>
                             <Text style={DrawerStyle.navItemStyle} onPress={this._navigateToChat}>
                                 Chat
                             </Text>
                         </View>
                         <View style={DrawerStyle.navSectionStyle} key="c">
+                            <MaterialIcons name="settings" size={25} style={DrawerStyle.iconsBtn}/>
                             <Text style={DrawerStyle.navItemStyle} onPress={this._navigateToConfiguration}>
-                                Configuracion
+                                Configuración
                             </Text>
                         </View>
                         <View style={DrawerStyle.navSectionStyle} key="d">
+                            <Icon name="sign-out" size={25} style={DrawerStyle.iconsBtn}/>
                             <Text style={DrawerStyle.navItemStyle} onPress={this._navigateToLogin}>
                                 Salir
                             </Text>
