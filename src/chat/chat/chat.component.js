@@ -22,6 +22,13 @@ export default class Chat extends Component {
     //   this.socket.on('disconnect', function(){debugger});
     this._sendMessage = this._sendMessage.bind(this)        
   }
+
+  static navigationOptions = {
+    title: 'Home',
+    headerMode: 'screen',
+  };
+  
+
   
   componentWillMount () {
     

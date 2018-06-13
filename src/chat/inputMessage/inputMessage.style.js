@@ -9,7 +9,7 @@ export default StyleSheet.create({
       fontSize: 25,
       paddingVertical: 4,
       paddingHorizontal: 5,
-      color: COLORS.COLORS.COLOR_1
+      color: COLORS.COLORS.COLOR_3
     },
     inputMessage: {
       flexDirection: 'row',
@@ -18,8 +18,8 @@ export default StyleSheet.create({
     },
     textMessage: {
       flex: 1,
-      borderColor: 'gray',
-      borderWidth: 1,
+      //borderColor: 'gray',
+      //borderWidth: 1,
       borderBottomColor: 'red',
       textDecorationLine: 'none',
       paddingVertical: 2,
