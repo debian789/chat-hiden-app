@@ -1,6 +1,6 @@
 import {createStackNavigator, createDrawerNavigator} from 'react-navigation';
 import React from 'react'
-import Chat from '../chat/chat/chat.component'
+import ChatComponent from '../chat/chat/chat.component'
 import Login from '../login/login.component'
 import DrawerComponent from './drawer/drawer.component'
 import HeaderComponent from './header/header.component'
@@ -8,7 +8,7 @@ import ConfigurationComponent from '../configuration/configuration.component'
 
 const ChatNavigator = createStackNavigator({
     Chat: {
-        screen: Chat
+        screen: ChatComponent
     },
     Configuration: {
         screen: ConfigurationComponent
