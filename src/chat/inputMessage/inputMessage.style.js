@@ -14,17 +14,21 @@ export default StyleSheet.create({
     inputMessage: {
       flexDirection: 'row',
       borderTopColor: '#cccccc',
-      borderTopWidth: 1
+      borderTopWidth: 1,
+      justifyContent: 'center',
+      alignItems: 'center',
+      paddingTop: 3,
+      paddingBottom: 2,
     },
     textMessage: {
       flex: 1,
-      //borderColor: 'gray',
-      //borderWidth: 1,
-      borderBottomColor: 'red',
+      borderColor: 'gray',
+      borderWidth: 1,
+      // borderBottomColor: 'red',
       textDecorationLine: 'none',
       paddingVertical: 2,
-      paddingHorizontal: 3,
-      borderRadius: 10,
+      paddingHorizontal: 13,
+      borderRadius: 13,
       marginHorizontal: 4,
       marginVertical: 4
     }

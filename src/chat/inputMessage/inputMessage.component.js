@@ -56,8 +56,8 @@ export default class InputMessage extends Component {
           style={InputMessageStyle.textMessage}
           editable={true}
           autoCorrect={false}
-          maxLength={40}
-          placeholder="Enter Text here"
+          maxLength={5000}
+          placeholder="Aa"
           value={this.state.textInputValue}
           onChangeText={textInputValue => this.setState({textInputValue})}
         />

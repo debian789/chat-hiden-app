@@ -54,6 +54,7 @@ export default class drawerComponent extends Component {
                                 Chat
                             </Text>
                         </View>
+                        
                         <View style={DrawerStyle.navSectionStyle} key="c">
                             <MaterialIcons name="settings" size={25} style={DrawerStyle.iconsBtn}/>
                             <Text style={DrawerStyle.navItemStyle} onPress={this._navigateToConfiguration}>
