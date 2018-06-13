@@ -18,7 +18,7 @@ export default StyleSheet.create({
       paddingHorizontal: 6,
       paddingVertical: 5,
       flex: 1,
-      backgroundColor: COLORS.COLORS.COLOR_2
+      backgroundColor: COLORS.COLORS.COLOR_3
       
     },
     messageSent: {
@@ -30,10 +30,10 @@ export default StyleSheet.create({
       flex: 1,
     },
     textMessageReceived: {
-      color: 'black'
+      color: 'red'
     },
     textMessageSent: {
-      color: 'white'
+      color: 'blue'
     }
   })
   

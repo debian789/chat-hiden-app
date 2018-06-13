@@ -19,6 +19,8 @@ export default StyleSheet.create({
       alignItems: 'center',
       paddingTop: 3,
       paddingBottom: 2,
+      paddingLeft: 3,
+      paddingRight: 3,
     },
     textMessage: {
       flex: 1,

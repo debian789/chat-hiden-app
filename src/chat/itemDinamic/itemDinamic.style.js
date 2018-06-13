@@ -15,6 +15,12 @@ export default StyleSheet.create({
       height: 200
     },
     containerVideo: {
+    },
+    textMessageReceived: {
+      color: 'black'
+    },
+    textMessageSent: {
+      color: 'white'
     }
   })
 

@@ -29,10 +29,11 @@ export default class ItemMessage extends Component {
   render () {
     let styleItem = this.props.isSent ? itemMessageStyle.messageSent : itemMessageStyle.messageReceived
     let styleItemText = this.props.isSent ? itemMessageStyle.textMessageSent : itemMessageStyle.textMessageReceived
+
     let itemSent = (<View style={itemMessageStyle.itemMessage}>
 
       <View style={styleItem}>
-        <ItemDinamic   style={styleItemText} message={this.props.message}/>       
+        <ItemDinamic  isSent={true} style={styleItemText} message={this.props.message}/>       
       </View>
       <Image style={itemMessageStyle.imageMessage}
              source={{uri: 'https://facebook.github.io/react/img/logo_og.png'}}
@@ -45,7 +46,7 @@ export default class ItemMessage extends Component {
              source={{uri: 'https://facebook.github.io/react/img/logo_og.png'}}
       />
       <View style={styleItem}>
-      <ItemDinamic   style={styleItemText} message={this.props.message}/>  
+      <ItemDinamic isSent={false}  style={styleItemText} message={this.props.message}/>  
       </View>
     </View>)
 

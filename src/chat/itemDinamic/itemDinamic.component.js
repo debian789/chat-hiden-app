@@ -62,7 +62,13 @@ export default class ItemDinamic extends Component {
       //  element = <View style="containerSubItems"><Image alt="Image" style="ImageMessage" src={this.props.message}/></View>
       //} 
       else {
-        element = <Text>{this.props.message}</Text>
+        
+        if (this.props.isSent) {
+          element = <Text style={itemDinamicStyle.textMessageReceived}>{this.props.message}</Text>
+        }  else {
+          element = <Text style={itemDinamicStyle.textMessageSent}>{this.props.message}</Text>
+
+        }
       }
       this.setState({element: element})
     }
