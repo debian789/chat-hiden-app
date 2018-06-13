@@ -29,7 +29,6 @@ export default class ItemDinamic extends Component {
 
   componentWillMount () {
     if (this.props.message) {
-      debugger
       let element = <Text></Text>
       if ((this.props.message.split('.').indexOf('jpg') !== -1) ||
         (this.props.message.split('.').indexOf('gif') !== -1) || 

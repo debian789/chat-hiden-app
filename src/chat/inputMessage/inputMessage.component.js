@@ -13,7 +13,7 @@ import {
 
 import Icon from 'react-native-vector-icons/FontAwesome'
 import InputMessageStyle from './inputMessage.style'
-import selectFile from '../../commons/selectFile'
+import selectFilePhoto from '../../commons/selectFilePhoto'
 
 export default class InputMessage extends Component {
   constructor (props) {
@@ -36,9 +36,8 @@ export default class InputMessage extends Component {
   _uploadFile() {
     const self2 = this
   
-    selectFile((error, url) => {
+    selectFilePhoto((error, url) => {
       if (!error) {
-        debugger 
         self2.setState({textInputValue: url})
         self2._sendMensaje()
       }
