@@ -12,15 +12,18 @@ import socketServer from '../../commons/constans'
 import SocketIOClient from 'socket.io-client'
 import chatStyle from './chat.style'
 import Icon from 'react-native-vector-icons/FontAwesome'
+import * as Progress from 'react-native-progress';
+
 
 export default class Chat extends Component {
   constructor (props) {
     super(props)
-    this.state = {mensajes: [], user: '', sala: ''}
+    this.state = {mensajes: [], user: '', sala: '', percentageUpload: undefined}
     //    this.socket.on('connect', function(){debugger});
     //  this.socket.on('event', function(data){debugger});
     //   this.socket.on('disconnect', function(){debugger});
-    this._sendMessage = this._sendMessage.bind(this)        
+    this._sendMessage = this._sendMessage.bind(this)    
+this._renderProgressBar = this._renderProgressBar.bind(this)
   }
 
   static navigationOptions = {
@@ -93,25 +96,42 @@ export default class Chat extends Component {
       this.setState({mensajes: mensajes})
   }
 
-  _sendMessage(mensaje) {
-    // this.socket.emit('mensaje',{ mensaje: message.mensaje, user: 'mobile', key: new Date()})  
-    let mensajeEnviar = {mensaje: mensaje.mensaje, user: this.state.user, key: new Date()}
-    let mensajeInsertar = {mensaje: mensaje.mensaje, user: this.state.user, key: new Date(), isSent: false}
-    this._receiveMessage(mensajeInsertar)
+  _sendMessage(mensaje, percentageUpload) {
 
-    //Envia un mensaje al server, este se encarga de reenviarlo a todos
+    if (percentageUpload) {
+      this.setState({percentageUpload})
 
+    } else  {
 
-    this.socket.emit('mensaje', mensajeEnviar)
-
+      // this.socket.emit('mensaje',{ mensaje: message.mensaje, user: 'mobile', key: new Date()})  
+      let mensajeEnviar = {mensaje: mensaje.mensaje, user: this.state.user, key: new Date()}
+      let mensajeInsertar = {mensaje: mensaje.mensaje, user: this.state.user, key: new Date(), isSent: false}
+      this._receiveMessage(mensajeInsertar)
+      
+      //Envia un mensaje al server, este se encarga de reenviarlo a todos
+      this.socket.emit('mensaje', mensajeEnviar)
+      
+    }
 
   }
 
+  _renderProgressBar() {
+    element = (<View></View>)
+    if ( (this.state.percentageUpload ) && this.state.percentageUpload < 100 )  {
+      let progress = this.state.percentageUpload / 100
+      element = (<Progress.Bar progress={progress} width={null} />)  
+
+    } 
+
+    return  element
+    
+  }
 
   render () {
     return (
       <View style={chatStyle.container}>
         <ListMessage  messages={this.state.mensajes}/>
+        {this._renderProgressBar()}
         <InputMessage sendMessage={this._sendMessage}/>
       </View>
     )

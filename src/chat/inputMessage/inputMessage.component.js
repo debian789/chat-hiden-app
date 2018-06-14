@@ -27,10 +27,14 @@ export default class InputMessage extends Component {
     this._uploadFileVideo = this._uploadFileVideo.bind(this)
   }
 
-  _sendMensaje() {
-    if (this.state.textInputValue){
-      this.props.sendMessage.call(null, {mensaje:this.state.textInputValue})
-      this.setState({textInputValue:''})
+  _sendMensaje(percentageUpload) {
+    if (percentageUpload) {
+      this.props.sendMessage.call(null, null, percentageUpload)
+    } else {
+      if (this.state.textInputValue){
+        this.props.sendMessage.call(null, {mensaje:this.state.textInputValue})
+        this.setState({textInputValue:''})
+      }
     }
   }
 
@@ -48,10 +52,14 @@ export default class InputMessage extends Component {
   _uploadFileVideo() {
     const self2 = this
   
-    selectFileVideo((error, url) => {
+    selectFileVideo((error, url, percentageUpload) => {
       if (!error) {
-        self2.setState({textInputValue: url})
-        self2._sendMensaje()
+        if (percentageUpload) {
+          self2._sendMensaje(percentageUpload)
+        } else {
+          self2.setState({textInputValue: url})
+          self2._sendMensaje(null)
+        }
       }
     })
   }

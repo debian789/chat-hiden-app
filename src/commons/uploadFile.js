@@ -14,11 +14,13 @@ export default(fileName, path, type, callback) => {
     var uploadBegin = (response) => {
         var jobId = response.jobId;
         console.log('UPLOAD HAS BEGUN! JobId: ' + jobId);
+        //callback(null, null, jobId)
     };
 
     var uploadProgress = (response) => {
         var percentage = Math.floor((response.totalBytesSent / response.totalBytesExpectedToSend) * 100);
         console.log('UPLOAD IS ' + percentage + '% DONE!');
+        callback(null, null, percentage)
     };
 
     // upload files
@@ -43,9 +45,8 @@ export default(fileName, path, type, callback) => {
                 //self2.setState({textInputValue: urlImageUpload.file}) self2._sendMensaje()
 
                 console.log('FILES UPLOADED!'); // response.statusCode, response.headers, response.body
-                debugger
-                
-                callback(null, urlImageUpload.file)
+               
+                callback(null, urlImageUpload.file, undefined)
             } else {
                 console.log('SERVER ERROR');
                 callback("SERVER ERROR")
