@@ -79,10 +79,8 @@ export default class Chat extends Component {
   }
 
   _sendMessage(mensaje, percentageUpload) {
-debugger 
-    if (percentageUpload && percentageUpload == 100) {
+    if (percentageUpload) {
       this.setState({percentageUpload})
-
     } else {
 
       if (mensaje) {
