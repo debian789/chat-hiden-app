@@ -23,9 +23,8 @@ export default class InputMessage extends Component {
     this.state = {
       textInputValue: ''
     }
-
     this._uploadFile = this._uploadFile.bind(this)
-
+    this._uploadFileVideo = this._uploadFileVideo.bind(this)
   }
 
   _sendMensaje() {
@@ -56,10 +55,6 @@ export default class InputMessage extends Component {
       }
     })
   }
-
-
-
-
 
   render () {
     return (

@@ -24,10 +24,9 @@ export default(callback) => {
         } else if (response.customButton) {
             console.log('User tapped custom button: ', response.customButton);
         } else {
-            uploadFile(response.fileName, response.path, response.type, (error, url) => {
+            uploadFile("mp4", response.path, "video/mp4", (error, url) => {
                 callback(error, url)
             })
         }
     });
-
 }
