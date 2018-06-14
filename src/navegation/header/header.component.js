@@ -1,10 +1,5 @@
 import React, { Component } from 'react'
-import {
-    View,
-    TouchableHighlight,
-    Text,
-    TextInput
-} from 'react-native'
+import {View,TouchableHighlight,Text} from 'react-native'
 import HeaderStyle from './header.style'
 import Icon from 'react-native-vector-icons/FontAwesome'
 
@@ -22,7 +17,6 @@ export default class HeaderComponent extends Component {
             this.props.navigation.openDrawer()
         } 
     }
-
 
     _quit() {
         this.props.navigation.navigate('Login')

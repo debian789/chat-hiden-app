@@ -13,13 +13,12 @@ export default(fileName, path, type, callback) => {
 
     var uploadBegin = (response) => {
         var jobId = response.jobId;
-        console.log('UPLOAD HAS BEGUN! JobId: ' + jobId);
-        //callback(null, null, jobId)
+        // console.log('UPLOAD HAS BEGUN! JobId: ' + jobId);
     };
 
     var uploadProgress = (response) => {
         var percentage = Math.floor((response.totalBytesSent / response.totalBytesExpectedToSend) * 100);
-        console.log('UPLOAD IS ' + percentage + '% DONE!');
+        // console.log('UPLOAD IS ' + percentage + '% DONE!');
         callback(null, null, percentage)
     };
 
@@ -41,21 +40,16 @@ export default(fileName, path, type, callback) => {
         .then((response) => {
             if (response.statusCode == 200) {
                 const urlImageUpload = JSON.parse(response.body)
-
-                //self2.setState({textInputValue: urlImageUpload.file}) self2._sendMensaje()
-
-                console.log('FILES UPLOADED!'); // response.statusCode, response.headers, response.body
-               
+                // console.log('FILES UPLOADED!'); // response.statusCode, response.headers, response.body
                 callback(null, urlImageUpload.file, undefined)
             } else {
-                console.log('SERVER ERROR');
+                // console.log('SERVER ERROR');
                 callback("SERVER ERROR")
             }
         })
         .catch((err) => {
-            console.log(err);
+            // console.log(err);
             callback("SERVER ERROR")
-            // if (err.description === "cancelled") { cancelled by user }
         });
 
 }

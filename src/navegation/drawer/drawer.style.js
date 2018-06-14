@@ -3,20 +3,16 @@ export default {
        flex: 1,
     },
     navSectionStyle: {
-       //  backgroundColor: 'red',
         marginTop: 10,
         borderRadius: 20,
         width: '85%',
         flexDirection: 'row',
         alignItems: 'center',
-        // justifyContent:'center'
     },
     navItemStyle: {
         padding: 10,
         textAlign: 'center',
-        // color: 'red'
     },
-
     containerOptions: {
         backgroundColor: 'white',
         flex: 1,

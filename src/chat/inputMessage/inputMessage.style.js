@@ -26,7 +26,6 @@ export default StyleSheet.create({
       flex: 1,
       borderColor: 'gray',
       borderWidth: 1,
-      // borderBottomColor: 'red',
       textDecorationLine: 'none',
       paddingVertical: 2,
       paddingHorizontal: 13,

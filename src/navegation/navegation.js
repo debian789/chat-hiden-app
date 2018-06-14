@@ -32,22 +32,6 @@ const DrawerMenu = createDrawerNavigator({
     contentComponent: DrawerComponent
 });
 
-/*
-const ChatNavigator = createStackNavigator({
-    Chat: {
-      screen: Chat
-    },
-    DrawerNavigator: {
-        screen: DrawerNavigator
-    }
-
-},
-{
-    headerMode: 'screen',
-    initialRouteName: 'Chat',
-}
-)*/
-
 const LoginNavigator = createStackNavigator({
     Login: {
         screen: Login

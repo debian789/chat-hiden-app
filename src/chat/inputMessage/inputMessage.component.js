@@ -1,16 +1,9 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- * @flow
- */
-
 import React, { Component } from 'react'
 import {
   View,
   TextInput,
   TouchableHighlight
 } from 'react-native'
-
 import Icon from 'react-native-vector-icons/FontAwesome'
 import Foundation from 'react-native-vector-icons/Foundation'
 import InputMessageStyle from './inputMessage.style'
@@ -27,7 +20,7 @@ export default class InputMessage extends Component {
     this._uploadFileVideo = this._uploadFileVideo.bind(this)
   }
 
-  _sendMensaje(percentageUpload) {
+  _sendMensaje(percentageUpload) {    
     if (percentageUpload) {
       this.props.sendMessage.call(null, null, percentageUpload)
     } else {
@@ -83,7 +76,7 @@ export default class InputMessage extends Component {
           value={this.state.textInputValue}
           onChangeText={textInputValue => this.setState({textInputValue})}
         />
-        <Icon name="arrow-right" style={InputMessageStyle.uploadFile} onPress={this._sendMensaje.bind(this)}></Icon>
+        <Icon name="arrow-right" style={InputMessageStyle.uploadFile} onPress={this._sendMensaje.bind(this, null)}></Icon>
       </View>
     )
   }

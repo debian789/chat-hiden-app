@@ -1,21 +1,10 @@
 'use strict';
 
-import React, {
-  Component
-} from 'react';
-
-import {
-  AppRegistry,
-  StyleSheet,
-  Text,
-  TouchableOpacity,
-  View,
-} from 'react-native';
-
+import React, {Component} from 'react';
+import {AppRegistry,StyleSheet,Text,TouchableOpacity,View} from 'react-native';
 import Video from 'react-native-video';
 
 export default class VideoPlayer extends Component {
-
   state = {
     rate: 1,
     volume: 1,
@@ -80,14 +69,10 @@ export default class VideoPlayer extends Component {
           </Text>
         </TouchableOpacity>
       )
-
-     
   }
-
 
   renderResizeModeControl(resizeMode) {
     const isSelected = (this.state.resizeMode === resizeMode);
-
     return (
       <TouchableOpacity onPress={() => { this.setState({ resizeMode }) }}>
         <Text style={[styles.controlOption, { fontWeight: isSelected ? 'bold' : 'normal' }]}>
@@ -112,7 +97,6 @@ export default class VideoPlayer extends Component {
   render() {
     const flexCompleted = this.getCurrentTimePercentage() * 100;
     const flexRemaining = (1 - this.getCurrentTimePercentage()) * 100;
-
     const urlVideo = this.props.urlVideo
 
     return (
@@ -123,10 +107,7 @@ export default class VideoPlayer extends Component {
         >
           <Video
             ref={(ref) => { this.video = ref }}
-            /* For ExoPlayer */
-            /* source={{ uri: 'http://www.youtube.com/api/manifest/dash/id/bf5bb2419360daf1/source/youtube?as=fmp4_audio_clear,fmp4_sd_hd_clear&sparams=ip,ipbits,expire,source,id,as&ip=0.0.0.0&ipbits=0&expire=19000000000&signature=51AF5F39AB0CEC3E5497CD9C900EBFEAECCCB5C7.8506521BFC350652163895D4C26DEE124209AA9E&key=ik0', type: 'mpd' }} */
             source={{uri:urlVideo}}
-            
             style={styles.fullScreen}
             rate={this.state.rate}
             paused={this.state.paused}
