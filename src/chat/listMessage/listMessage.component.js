@@ -1,5 +1,5 @@
 import React, {Component} from 'react'
-import {Text, View, Image, ScrollView} from 'react-native'
+import {ScrollView} from 'react-native'
 import ItemMessage from '../itemMessage/itemMessage.component'
 import ListMessageStyle from './listMessage.style'
 

@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import {View,TouchableHighlight,Text} from 'react-native'
+import {View,TouchableOpacity,Text} from 'react-native'
 import HeaderStyle from './header.style'
 import Icon from 'react-native-vector-icons/FontAwesome'
 
@@ -26,17 +26,17 @@ export default class HeaderComponent extends Component {
         return (
              <View style={HeaderStyle.container}>
                  <View style={HeaderStyle.containerA}>
-                     <TouchableHighlight
+                     <TouchableOpacity
                           style={HeaderStyle.menu}
                           onPress={this._handlerDrawer}>
                          <Text><Icon style={HeaderStyle.menuIcon} name="bars" size={25}/></Text>
-                     </TouchableHighlight>
+                     </TouchableOpacity>
                      <View style={HeaderStyle.logo}><Text style={HeaderStyle.logoText}>Chat</Text></View>
-                     <TouchableHighlight
+                     <TouchableOpacity
                           style={HeaderStyle.navegation}
                           onPress={this._quit}>
                          <Text><Icon name="sign-out" size={25} style={HeaderStyle.navegationIcon}/></Text>
-                     </TouchableHighlight>
+                     </TouchableOpacity>
                  </View>
              </View>
         )

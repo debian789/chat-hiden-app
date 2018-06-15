@@ -1,7 +1,6 @@
 import React, {Component} from 'react'
 import {View, Image} from 'react-native'
 import itemMessageStyle from './itemMessage.style'
-import constants from '../../commons/constans'
 import ItemDinamic from '../itemDinamic/itemDinamic.component'
 
 export default class ItemMessage extends Component {

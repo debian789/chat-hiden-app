@@ -1,5 +1,5 @@
 import React, {Component} from 'react'
-import {View, Text, TextInput, TouchableHighlight} from 'react-native';
+import {View, Text, TextInput, TouchableOpacity} from 'react-native';
 import LoginStyle from './login.style'
 
 export default class Login extends Component {
@@ -47,11 +47,11 @@ export default class Login extends Component {
                         placeholderTextColor="#9a73ef"
                         onChangeText = {this._handleSala}
                         autoCapitalize="none"/>
-                    <TouchableHighlight onPress={this._ingresar}>
+                    <TouchableOpacity onPress={this._ingresar}>
                         <Text style={LoginStyle.button}>
                             Ingresar
                         </Text>
-                    </TouchableHighlight>                    
+                    </TouchableOpacity>                    
                 </View>
             </View>
         )
