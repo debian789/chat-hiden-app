@@ -7,7 +7,7 @@ export default(callback) => {
         title: 'Seleccionar video',
         cancelButtonTitle: 'Cancelar',
         takePhotoButtonTitle: 'Tomar video',
-        chooseFromLibraryButtonTitle: 'Album',
+        chooseFromLibraryButtonTitle: 'Galería',
         mediaType: 'video',
         storageOptions: {
             skipBackup: true,

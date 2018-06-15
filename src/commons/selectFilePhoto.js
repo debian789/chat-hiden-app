@@ -7,7 +7,7 @@ export default(callback) => {
         title: 'Seleccionar foto',
         cancelButtonTitle: 'Cancelar',
         takePhotoButtonTitle: 'Tomar foto',
-        chooseFromLibraryButtonTitle: 'Album',
+        chooseFromLibraryButtonTitle: 'Galería',
         mediaType: 'photo',
         storageOptions: {
             skipBackup: true,

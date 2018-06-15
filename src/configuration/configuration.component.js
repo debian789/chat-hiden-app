@@ -38,6 +38,7 @@ export default class ConfigurationComponent extends Component {
     _resetUrlServer() {
         setItem(constans.LOCAL_STORAGE.URL_SERVER, constans.CONNECTION.SOCKET)
         this.setState({textValue: constans.CONNECTION.SOCKET})
+        alert('Restaurado')
     }
 
     render() {
