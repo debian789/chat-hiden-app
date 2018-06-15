@@ -30,8 +30,6 @@ export default class ConfigurationComponent extends Component {
         }) 
     }
 
-
-
     _changeUrlServer() {
         setItem(constans.LOCAL_STORAGE.URL_SERVER, this.state.textValue)
         alert('Guardado')
@@ -50,7 +48,7 @@ export default class ConfigurationComponent extends Component {
                     <CheckBox style={ConfigurationStyle.btnCheck}/>
                 </View>
                 <View style={ConfigurationStyle.containerServer}>
-                    <Text style={ConfigurationStyle.styleTitle}>Configuración con el servidor</Text>
+                    <Text style={ConfigurationStyle.styleTitle}>Conexión con el servidor</Text>
 
                     <TextInput style={ConfigurationStyle.input} onChangeText={textInputValue => this.setState({textValue: textInputValue})}
                      value={this.state.textValue} />

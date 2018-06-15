@@ -51,11 +51,10 @@ export default class Chat extends Component {
     getItem(constans.LOCAL_STORAGE.URL_SERVER, (error, item) => {
       if (error) {
         self.setState({urlServer: constans.CONNECTION.SOCKET})
-      } else {
-
+      } else {        
         self.setState({urlServer: item})
       }
-
+      
       self.socket = SocketIOClient(self.state.urlServer)
 
       //Esta pendiente de recibir informacion desde el server
@@ -95,9 +94,7 @@ export default class Chat extends Component {
     if (percentageUpload) {
       this.setState({percentageUpload})
     } else {
-
       if (mensaje) {
-
         let mensajeEnviar = {
           mensaje: mensaje.mensaje,
           user: this.state.user,
@@ -116,9 +113,7 @@ export default class Chat extends Component {
         this
           .socket
           .emit('mensaje', mensajeEnviar)
-
       }
-
     }
   }
 

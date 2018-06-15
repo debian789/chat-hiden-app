@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import {
   View,
   TextInput,
-  TouchableHighlight
+  TouchableOpacity
 } from 'react-native'
 import Icon from 'react-native-vector-icons/FontAwesome'
 import Foundation from 'react-native-vector-icons/Foundation'
@@ -60,12 +60,12 @@ export default class InputMessage extends Component {
   render () {
     return (
       <View style={InputMessageStyle.inputMessage}>
-        <TouchableHighlight onPress={this._uploadFile}>
+        <TouchableOpacity onPress={this._uploadFile}>
           <Icon name="photo" style={InputMessageStyle.uploadFile} ></Icon>
-        </TouchableHighlight>
-        <TouchableHighlight onPress={this._uploadFileVideo}>
+        </TouchableOpacity>
+        <TouchableOpacity onPress={this._uploadFileVideo}>
           <Foundation name="video" style={InputMessageStyle.uploadFile} ></Foundation>
-        </TouchableHighlight>
+        </TouchableOpacity>
         <TextInput
           underlineColorAndroid="transparent"
           style={InputMessageStyle.textMessage}
@@ -76,7 +76,9 @@ export default class InputMessage extends Component {
           value={this.state.textInputValue}
           onChangeText={textInputValue => this.setState({textInputValue})}
         />
-        <Icon name="arrow-right" style={InputMessageStyle.uploadFile} onPress={this._sendMensaje.bind(this, null)}></Icon>
+        <TouchableOpacity onPress={this._sendMensaje.bind(this, null)}>
+           <Icon name="arrow-right" style={InputMessageStyle.uploadFile} ></Icon>
+        </TouchableOpacity>
       </View>
     )
   }
