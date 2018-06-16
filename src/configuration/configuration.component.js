@@ -40,14 +40,14 @@ export default class ConfigurationComponent extends Component {
         this.setState({textValue: constans.CONNECTION.SOCKET})
         alert('Restaurado')
     }
-
+    /*
+    <View style={ConfigurationStyle.containerNotfication}>
+        <Text style={ConfigurationStyle.titleNotification}>Permitir notificaciones</Text>
+        <CheckBox style={ConfigurationStyle.btnCheck}/>
+    </View>*/
     render() {
         return (
             <View style={ConfigurationStyle.container}>
-                <View style={ConfigurationStyle.containerNotfication}>
-                    <Text style={ConfigurationStyle.titleNotification}>Permitir notificaciones</Text>
-                    <CheckBox style={ConfigurationStyle.btnCheck}/>
-                </View>
                 <View style={ConfigurationStyle.containerServer}>
                     <Text style={ConfigurationStyle.styleTitle}>Conexión con el servidor</Text>
 
