@@ -1,5 +1,5 @@
 import React, {Component} from 'react'
-import {View, Text, TextInput, TouchableOpacity} from 'react-native';
+import {View, Text, TextInput, Image,TouchableOpacity} from 'react-native';
 import LoginStyle from './login.style'
 
 export default class Login extends Component {
@@ -29,14 +29,17 @@ export default class Login extends Component {
     render() {
         return (
             <View style={LoginStyle.container}>
-                <View style={LoginStyle.logo}></View>
+                <View style={LoginStyle.logoContainer}>
+                    <Image source={require('./image/logo.png')} style={LoginStyle.logo} />
+                    <Text style={LoginStyle.titleLogin}>Chat incógnito</Text>
+                </View>
                 <View style={LoginStyle.containerInput}>
                     <TextInput
                         autoCorrect={false}
                         style={LoginStyle.textInput}
                         underlineColorAndroid="transparent"
                         placeholder="Usuario"
-                        placeholderTextColor="#9a73ef"
+                        placeholderTextColor="#ccc"
                         onChangeText = {this._handleUser}
                         autoCapitalize="none"/>
                     <TextInput
@@ -44,7 +47,7 @@ export default class Login extends Component {
                         style={LoginStyle.textInput}
                         underlineColorAndroid="transparent"
                         placeholder="Palabra seguridad"
-                        placeholderTextColor="#9a73ef"
+                        placeholderTextColor="#ccc"
                         onChangeText = {this._handleSala}
                         autoCapitalize="none"/>
                     <TouchableOpacity onPress={this._ingresar}>

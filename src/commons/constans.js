@@ -9,7 +9,7 @@ export default {
     COLOR_GRIS_2: '#E2E7EB'
   },
   CONNECTION: {
-    SOCKET: 'http://192.168.1.111:3000'
+    SOCKET: 'https://chat-hide.herokuapp.com'
   },
   LOCAL_STORAGE: {
     URL_SERVER: 'URL_SERVER'
