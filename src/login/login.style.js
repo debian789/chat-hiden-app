@@ -59,8 +59,45 @@ export default StyleSheet.create({
         borderColor: 'black',
         color: 'white',
         backgroundColor: constants.COLORS.COLOR_4
+    },
+    containerCode: {
+        flexDirection: 'row',
+    },
+    ayuda: {
+        textAlign:'center',
+        marginBottom: 10,
+        marginTop: 4,
+    },
+    textInputCode:  {
+        height: 40,
+        borderColor: 'white',
+        borderWidth: 1,
+        marginBottom: 10,
+        backgroundColor: 'white',
+        borderTopLeftRadius: 5,
+        borderTopRightRadius: 5,
+        borderBottomRightRadius: 5 ,
+        borderBottomLeftRadius: 5 ,
+        flex: 1
+    },
+    refresh: {
+        fontSize: 18,
+        color: 'white',
+        backgroundColor: constants.COLORS.COLOR_4,
+        paddingTop: 10,
+        paddingBottom: 10,
+        paddingLeft: 18,
+        paddingRight: 18,
+    },
+    share: {
+        fontSize: 18,
+        color: 'white',
+        backgroundColor: constants.COLORS.COLOR_4,
+        paddingTop: 10,
+        paddingBottom: 10,
+        paddingLeft: 18,
+        paddingRight: 18,
+
     }
-
-
   })
   
