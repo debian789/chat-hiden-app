@@ -1,8 +1,5 @@
 import React, {Component} from 'react'
-import {View, Text, TextInput, Image,TouchableOpacity, StyleSheet ,  Clipboard,
-  ToastAndroid,
-  AlertIOS,
-  Platform} from 'react-native';
+import {View, Text, TextInput, Image,TouchableOpacity} from 'react-native';
 import LoginStyle from './login.style'
 import Icon from 'react-native-vector-icons/FontAwesome'
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons'

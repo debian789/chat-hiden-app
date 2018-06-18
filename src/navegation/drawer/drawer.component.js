@@ -2,7 +2,7 @@ import React, {Component} from 'react'
 import {View, Text, ScrollView} from 'react-native'
 import DrawerStyle from './drawer.style'
 import Icon from 'react-native-vector-icons/FontAwesome'
-
+import Share from 'react-native-share';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons'
 
 export default class drawerComponent extends Component {
@@ -19,6 +19,10 @@ export default class drawerComponent extends Component {
 
         this._navigateToLogin = this
             ._navigateToLogin
+            .bind(this)
+        
+        this._share = this
+            ._share
             .bind(this)
     }
 
@@ -43,6 +47,18 @@ export default class drawerComponent extends Component {
             .navigate('Login')
     }
 
+    _share() {
+        let shareOptions = {
+          title: "Chat incógnito",
+          message: "Aplicación para chat",
+          url: "https://play.google.com/store/apps/details?id=com.chathideapp",
+          subject: "Codigo chat incógnito" //  for email
+        };
+   
+        Share.open(shareOptions);
+
+      }
+
     render() {
         return (
             <View style={DrawerStyle.container}>
@@ -61,6 +77,14 @@ export default class drawerComponent extends Component {
                                 Configuración
                             </Text>
                         </View>
+
+                        <View style={DrawerStyle.navSectionStyle} key="c">
+                            <MaterialIcons name="share" size={25} style={DrawerStyle.iconsBtn}/>
+                            <Text style={DrawerStyle.navItemStyle} onPress={this._share}>
+                                Compartir aplicación
+                            </Text>
+                        </View>
+
                         <View style={DrawerStyle.navSectionStyle} key="d">
                             <Icon name="sign-out" size={25} style={DrawerStyle.iconsBtn}/>
                             <Text style={DrawerStyle.navItemStyle} onPress={this._navigateToLogin}>
