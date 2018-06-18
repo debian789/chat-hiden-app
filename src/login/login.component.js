@@ -1,8 +1,13 @@
 import React, {Component} from 'react'
-import {View, Text, TextInput, Image,TouchableOpacity} from 'react-native';
+import {View, Text, TextInput, Image,TouchableOpacity, StyleSheet ,  Clipboard,
+  ToastAndroid,
+  AlertIOS,
+  Platform} from 'react-native';
 import LoginStyle from './login.style'
 import Icon from 'react-native-vector-icons/FontAwesome'
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons'
+import Share from 'react-native-share';
+
 
 export default class Login extends Component {
     constructor(props) {
@@ -30,7 +35,7 @@ export default class Login extends Component {
         if (this.state.user && this.state.sala) {
             this.props.navigation.navigate('Chat', this.state)
         } else {
-            alert('Falta el nombre o codigo')
+            alert('Falta nombre o codigo')
         }
     }
 
@@ -40,7 +45,18 @@ export default class Login extends Component {
     }
 
     _share() {
-
+      let shareOptions = {
+        title: "Chat incógnito",
+        message: this.state.sala,
+        url: "",
+        subject: "Codigo chat incógnito" //  for email
+      };
+  
+      if (this.state.sala) {
+        Share.open(shareOptions);
+      } else {
+          alert('Codigo requerido')
+      }
     }
 
     render() {
@@ -65,7 +81,7 @@ export default class Login extends Component {
                                 autoCorrect={false}
                                 style={LoginStyle.textInputCode}
                                 underlineColorAndroid="transparent"
-                                placeholder="0..."
+                                placeholder="Codigo ..."
                                 placeholderTextColor="#ccc"
                                 onChangeText = {this._handleSala}
                                 value={this.state.sala}
@@ -73,7 +89,7 @@ export default class Login extends Component {
                             <TouchableOpacity onPress={this._refresh}>
                                 <Icon name="refresh" style={LoginStyle.refresh} />
                             </TouchableOpacity>   
-                            <TouchableOpacity onPress={this._ingresar}>
+                            <TouchableOpacity onPress={this._share}>
                                 <MaterialIcons name="share" style={LoginStyle.share}/>
                             </TouchableOpacity>   
                         </View>
