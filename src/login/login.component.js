@@ -9,8 +9,7 @@ export default class Login extends Component {
         super(props)
         this.state = {
             user:'',
-            sala: '',
-            salaRandom: ''
+            sala: ''
         }
         this._handleUser = this._handleUser.bind(this)
         this._handleSala = this._handleSala.bind(this)
@@ -28,11 +27,16 @@ export default class Login extends Component {
     }
 
     _ingresar() {
-        this.props.navigation.navigate('Chat', this.state)
+        if (this.state.user && this.state.sala) {
+            this.props.navigation.navigate('Chat', this.state)
+        } else {
+            alert('Falta el nombre o codigo')
+        }
     }
 
     _refresh() {
-        this.setState({ salaRandom: Math.floor((Math.random() * 1000) + 1).toString() })
+        const numberRandom = Math.floor((Math.random() * 10000) + 1).toString()
+        this.setState({ sala: numberRandom })
     }
 
     _share() {
@@ -64,7 +68,7 @@ export default class Login extends Component {
                                 placeholder="0..."
                                 placeholderTextColor="#ccc"
                                 onChangeText = {this._handleSala}
-                                value={this.state.salaRandom}
+                                value={this.state.sala}
                                 autoCapitalize="none"/>
                             <TouchableOpacity onPress={this._refresh}>
                                 <Icon name="refresh" style={LoginStyle.refresh} />
