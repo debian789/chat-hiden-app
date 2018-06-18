@@ -4,7 +4,8 @@ import LoginStyle from './login.style'
 import Icon from 'react-native-vector-icons/FontAwesome'
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons'
 import Share from 'react-native-share';
-
+import {getItem,setItem} from '../commons/localStorage'
+import constans from '../commons/constans'
 
 export default class Login extends Component {
     constructor(props) {
@@ -30,6 +31,7 @@ export default class Login extends Component {
 
     _ingresar() {
         if (this.state.user && this.state.sala) {
+            setItem(constans.LOCAL_STORAGE.CODE, this.state.sala)
             this.props.navigation.navigate('Chat', this.state)
         } else {
             alert('Falta nombre o codigo')

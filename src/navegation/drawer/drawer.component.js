@@ -4,11 +4,16 @@ import DrawerStyle from './drawer.style'
 import Icon from 'react-native-vector-icons/FontAwesome'
 import Share from 'react-native-share';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons'
+import {getItem,setItem} from '../../commons/localStorage'
+import constans from '../../commons/constans'
 
 export default class drawerComponent extends Component {
 
     constructor(props) {
         super(props)
+        this.state = {
+            code: undefined
+        }
         this._navigateToConfiguration = this
             ._navigateToConfiguration
             .bind(this)
@@ -24,6 +29,16 @@ export default class drawerComponent extends Component {
         this._share = this
             ._share
             .bind(this)
+    }
+
+    componentWillMount() {
+        const self = this
+
+        getItem(constans.LOCAL_STORAGE.CODE, (error, item) => {
+            if (!error && item) {
+                self.setState({code:item})               
+            }
+        }) 
     }
 
     _navigateToConfiguration() {
@@ -64,6 +79,14 @@ export default class drawerComponent extends Component {
             <View style={DrawerStyle.container}>
                 <ScrollView style={DrawerStyle.scrollView}>
                     <View style={DrawerStyle.containerOptions}>
+
+                        <View style={DrawerStyle.navSectionStyle} key="xa">
+                            <MaterialIcons name="security" size={25} style={DrawerStyle.iconsBtn}/>
+                            <Text style={DrawerStyle.navItemStyle} onPress={this._navigateToChat}>
+                                Codigo: {this.state.code}
+                            </Text>
+                        </View>
+
                         <View style={DrawerStyle.navSectionStyle} key="a">
                             <MaterialIcons name="message" size={25} style={DrawerStyle.iconsBtn}/>
                             <Text style={DrawerStyle.navItemStyle} onPress={this._navigateToChat}>
@@ -78,7 +101,7 @@ export default class drawerComponent extends Component {
                             </Text>
                         </View>
 
-                        <View style={DrawerStyle.navSectionStyle} key="c">
+                        <View style={DrawerStyle.navSectionStyle} key="cd">
                             <MaterialIcons name="share" size={25} style={DrawerStyle.iconsBtn}/>
                             <Text style={DrawerStyle.navItemStyle} onPress={this._share}>
                                 Compartir aplicación

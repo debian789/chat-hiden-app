@@ -12,6 +12,7 @@ export default {
     SOCKET: 'https://chat-hide.herokuapp.com'
   },
   LOCAL_STORAGE: {
-    URL_SERVER: 'URL_SERVER'
+    URL_SERVER: 'URL_SERVER',
+    CODE: 'CODE'
   }
 }
