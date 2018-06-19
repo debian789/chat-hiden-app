@@ -24,8 +24,8 @@ export default(callback) => {
         } else if (response.customButton) {
             console.log('User tapped custom button: ', response.customButton);
         } else {
-            uploadFile(response.fileName, response.path, response.type, (error, url) => {
-                callback(error, url)
+            uploadFile(response.fileName, response.path, response.type, (error, url, percentageUpload) => {
+                callback(error, url, percentageUpload)
             })
         }
     });

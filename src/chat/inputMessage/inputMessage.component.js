@@ -16,7 +16,7 @@ export default class InputMessage extends Component {
     this.state = {
       textInputValue: ''
     }
-    this._uploadFile = this._uploadFile.bind(this)
+    this._uploadFilePhoto = this._uploadFilePhoto.bind(this)
     this._uploadFileVideo = this._uploadFileVideo.bind(this)
   }
 
@@ -31,13 +31,17 @@ export default class InputMessage extends Component {
     }
   }
 
-  _uploadFile() {
+  _uploadFilePhoto() {
     const self2 = this
   
-    selectFilePhoto((error, url) => {
+    selectFilePhoto((error, url, percentageUpload) => {
       if (!error) {
-        self2.setState({textInputValue: url})
-        self2._sendMensaje()
+        if (percentageUpload) {
+          self2._sendMensaje(percentageUpload)
+        } else {
+          self2.setState({textInputValue: url})
+          self2._sendMensaje()
+        }
       }
     })
   }
@@ -60,7 +64,7 @@ export default class InputMessage extends Component {
   render () {
     return (
       <View style={InputMessageStyle.inputMessage}>
-        <TouchableOpacity onPress={this._uploadFile}>
+        <TouchableOpacity onPress={this._uploadFilePhoto}>
           <Icon name="photo" style={InputMessageStyle.uploadFile} ></Icon>
         </TouchableOpacity>
         <TouchableOpacity onPress={this._uploadFileVideo}>
