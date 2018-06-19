@@ -1,5 +1,5 @@
 import React, {Component} from 'react'
-import {View, Text, ScrollView} from 'react-native'
+import {Alert, View, Text, ScrollView} from 'react-native'
 import DrawerStyle from './drawer.style'
 import Icon from 'react-native-vector-icons/FontAwesome'
 import Share from 'react-native-share';
@@ -56,10 +56,18 @@ export default class drawerComponent extends Component {
     }
 
     _navigateToLogin() {
-        this
-            .props
-            .navigation
-            .navigate('Login')
+        Alert.alert(
+            'Realmente desea salir',
+            '',
+            [
+              {text: 'Cancel', onPress: () => console.log('Cancel Pressed'), style: 'cancel'},
+              {text: 'OK', onPress: () => {
+                  this.props.navigation.navigate('Login')
+              }}
+            ],
+            { cancelable: false }
+          )
+          
     }
 
     _share() {
@@ -72,7 +80,7 @@ export default class drawerComponent extends Component {
    
         Share.open(shareOptions);
 
-      }
+      }      
 
     render() {
         return (

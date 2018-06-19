@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import {View,TouchableOpacity,Text} from 'react-native'
+import {Alert,View,TouchableOpacity,Text} from 'react-native'
 import HeaderStyle from './header.style'
 import Icon from 'react-native-vector-icons/FontAwesome'
 
@@ -19,7 +19,17 @@ export default class HeaderComponent extends Component {
     }
 
     _quit() {
-        this.props.navigation.navigate('Login')
+        Alert.alert(
+            'Realmente desea salir',
+            '',
+            [
+              {text: 'Cancel', onPress: () => console.log('Cancel Pressed'), style: 'cancel'},
+              {text: 'OK', onPress: () => {
+                  this.props.navigation.navigate('Login')
+              }}
+            ],
+            { cancelable: false }
+          )
     }
 
     render () {
