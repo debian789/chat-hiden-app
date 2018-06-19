@@ -60,15 +60,16 @@ export default class InputMessage extends Component {
       }
     })
   }
-
+  /*
+  <TouchableOpacity onPress={this._uploadFileVideo}>
+    <Foundation name="video" style={InputMessageStyle.uploadFile} ></Foundation>
+  </TouchableOpacity>
+  */
   render () {
     return (
       <View style={InputMessageStyle.inputMessage}>
         <TouchableOpacity onPress={this._uploadFilePhoto}>
           <Icon name="photo" style={InputMessageStyle.uploadFile} ></Icon>
-        </TouchableOpacity>
-        <TouchableOpacity onPress={this._uploadFileVideo}>
-          <Foundation name="video" style={InputMessageStyle.uploadFile} ></Foundation>
         </TouchableOpacity>
         <TextInput
           underlineColorAndroid="transparent"
